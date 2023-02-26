@@ -6,7 +6,7 @@ import { useTransactions } from 'contexts/Guilds';
 import { useAccount, useNetwork } from 'wagmi';
 import AddressButton from 'components/AddressButton/AddressButton';
 import { isReadOnly } from 'provider/wallets';
-import useSwitchNetwork from 'hooks/Guilds/web3/useSwitchNetwork';
+import useSwitchNetwork from '../../hooks/Guilds/web3/useSwitchNetwork';
 
 const WalletButton = () => {
   const { t } = useTranslation();

@@ -1,0 +1,8 @@
+{
+  "contracts": {
+    "utils": {
+      "guildRegistry": "0x304de4fd740e73db7f8a4fC11f41680d51dB1aF2"
+    }
+  },
+  "version": 1
+}
