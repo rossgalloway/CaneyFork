@@ -22,7 +22,7 @@ import { useTransactions } from 'contexts/Guilds';
 import { Divider } from 'components/Divider';
 import { Button } from 'components/primitives/Button';
 import { READ_ONLY_CONNECTOR_ID } from 'provider/ReadOnlyConnector';
-import useSwitchNetwork from 'hooks/Guilds/web3/useSwitchNetwork';
+import useSwitchNetwork from '../../../hooks/Guilds/web3/useSwitchNetwork';
 import { BiWorld } from 'react-icons/bi';
 import { FiChevronRight } from 'react-icons/fi';
 import { TiTick } from 'react-icons/ti';
