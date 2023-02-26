@@ -1,7 +1,7 @@
 import { utils } from 'ethers';
 import { useMemo } from 'react';
 import { useNetwork } from 'wagmi';
-import useIPFSFile from '../ipfs/useIPFSFile';
+import useIPFSFile from '../../../../src/hooks/Guilds/ipfs/useIPFSFile';
 import { useENSContentHash } from '../ens/useENSPublicResolverContract';
 
 export interface RichContractFunctionParam {

@@ -36,7 +36,7 @@
     "src",
     "scripts",
     "src/declarations.d.ts"
-  ],
+, "unused/hooks/Guilds/useVoteSummary.ts", "unused/hooks/Guilds/useMenu.ts"  ],
   "exclude": [
     "node_modules",
     "build",
