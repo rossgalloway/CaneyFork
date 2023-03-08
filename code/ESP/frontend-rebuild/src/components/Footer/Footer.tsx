@@ -22,7 +22,7 @@ const Footer = () => {
         )}
         <Link
           data-testid="footer-bug-report"
-          href="https://github.com/DXgovernance/DAVI-monorepo/issues/new?labels=app:Frontend,User%20Submitted"
+          href="https://github.com/rossgalloway/DXdao/issues/new?labels=app:Frontend,User%20Submitted"
           target="_blank"
           rel="noopener"
         >
@@ -39,8 +39,8 @@ const Footer = () => {
         </Link>
         <Dot />
         <Link
-          data-testid="footer-davi-repo"
-          href="https://github.com/DXgovernance/DAVI"
+          data-testid="footer-frontend-rebuild-repo"
+          href="https://github.com/rossgalloway/DXdao/tree/master/code/ESP/frontend-rebuild"
           target="_blank"
           rel="noopener"
         >

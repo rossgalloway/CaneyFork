@@ -36,7 +36,7 @@
     "src",
     "scripts",
     "src/declarations.d.ts"
-, "unused/hooks/Guilds/useVoteSummary.ts", "unused/hooks/Guilds/useMenu.ts"  ],
+, "unused/hooks/Guilds/useVoteSummary.ts", "unused/hooks/Guilds/useMenu.ts", "unused/components/primitives/Links/BlockExplorerLink.tsx", "unused/contexts/guilds/filters.tsx", "unused/contexts/guilds/guildAvailability.tsx", "unused/components/primitives/Links/BLockExplorerLink.test.tsx", "src/hooks/Guilds/conversions", "unused/utils/validation.test.ts"  ],
   "exclude": [
     "node_modules",
     "build",

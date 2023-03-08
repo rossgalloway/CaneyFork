@@ -1,4 +1,5 @@
 import App from './App';
+import initializeI18Next from './i18n';
 // import * as serviceWorker from './serviceWorker';
 import moment from 'moment';
 import * as ReactDOMClient from 'react-dom/client';
@@ -15,7 +16,7 @@ import { apolloClient } from 'clients/apollo';
 import { wagmiClient } from 'clients/wagmi';
 import { DEFAULT_CHAIN_ID } from 'utils';
 
-// initializeI18Next();
+initializeI18Next();
 
 moment.updateLocale('en', {
   relativeTime: {

@@ -2,7 +2,7 @@ import { InjectedConnector } from 'wagmi/connectors/injected';
 import { WalletConnectConnector } from 'wagmi/connectors/walletConnect';
 import { CoinbaseWalletConnector } from 'wagmi/connectors/coinbaseWallet';
 import { Chain, Connector } from 'wagmi';
-import metamaskIcon from '../../public/assets/images/metamask.png';
+import metamaskIcon from '../assets/images/metamask.png';
 import walletConnectIcon from '../assets/images/walletconnect.png'; 
 import coinbaseWalletIcon from '../assets/images/coinbaseWallet.png';
 import frameIcon from '../assets/images/frame.svg';

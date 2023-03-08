@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button } from 'components/primitives/Button';
 import { WalletModal } from 'components/Web3Modals';
-import { useTransactions } from 'contexts/Guilds';
+// import { useTransactions } from 'contexts/Guilds';
 import { useAccount, useNetwork } from 'wagmi';
 import AddressButton from 'components/AddressButton/AddressButton';
 import { isReadOnly } from 'provider/wallets';
@@ -15,7 +15,7 @@ const WalletButton = () => {
   const { switchNetwork } = useSwitchNetwork();
   const { chain, chains } = useNetwork();
 
-  const { transactions } = useTransactions();
+  // const { transactions } = useTransactions();
   const [isWalletModalOpen, setIsWalletModalOpen] = useState(false);
 
   const toggleWalletModal = () => {
@@ -46,10 +46,10 @@ const WalletButton = () => {
       return (
         <AddressButton
           address={address}
-          transactionsCounter={
-            transactions?.filter(transaction => !transaction.receipt)?.length ??
-            0
-          }
+          // transactionsCounter={
+          //   transactions?.filter(transaction => !transaction.receipt)?.length ??
+          //   0
+          // }
           onClick={toggleWalletModal}
         />
       );

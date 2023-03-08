@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 183.54 28">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-3 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        font-family: JosefinSans-Bold, 'Josefin Sans';
+        font-size: 20px;
+        font-weight: 700;
+      }
+
+      .cls-4 {
+        letter-spacing: .02em;
+      }
+
+      .cls-5 {
+        fill: url(#radial-gradient);
+      }
+
+      .cls-3 {
+        font-family: LucidaSans, 'Lucida Sans';
+        font-size: 18px;
+        letter-spacing: .04em;
+      }
+
+      .cls-6 {
+        letter-spacing: .05em;
+      }
+    </style>
+    <radialGradient id="radial-gradient" cx="-875.5" cy="620.21" fx="-875.5" fy="620.21" r="1" gradientTransform="translate(-8669 12271) rotate(90) scale(14 -14)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#304ffe"/>
+      <stop offset="1" stop-color="#3d5afe"/>
+    </radialGradient>
+  </defs>
+  <circle class="cls-5" cx="14" cy="14" r="14"/>
+  <g>
+    <path class="cls-1" d="m6.87,6.87c3.01-3.01,7.46-3.72,11.15-2.12l-1.92,1.92c-2.57-.73-5.46-.09-7.48,1.94-2.68,2.68-2.94,6.85-.8,9.83l2.86-2.86,1.74,1.74-4.62,4.62c-.32-.25-.63-.52-.92-.82-3.94-3.94-3.94-10.32,0-14.26Z"/>
+    <path class="cls-1" d="m9.98,23.25c3.69,1.6,8.13.89,11.15-2.12,3.94-3.94,3.94-10.32,0-14.26-.29-.29-.6-.57-.92-.82l-4.62,4.62,1.74,1.74,2.86-2.86c2.14,2.98,1.88,7.15-.8,9.83-2.03,2.03-4.91,2.67-7.48,1.94l-1.92,1.92Z"/>
+    <path class="cls-1" d="m15.74,14l-1.74-1.74-1.74,1.74,1.74,1.74,1.74-1.74Z"/>
+    <path class="cls-1" d="m10.67,8.93l1.74,1.74-1.74,1.74-1.74-1.74,1.74-1.74Z"/>
+    <path class="cls-1" d="m19.07,17.33l-1.74-1.74-1.74,1.74,1.74,1.74,1.74-1.74Z"/>
+  </g>
+  <g>
+    <text class="cls-2" transform="translate(41.23 21.71) scale(1.1 1)"><tspan class="cls-4" x="0" y="0">D</tspan><tspan class="cls-6" x="15.72" y="0">X</tspan></text>
+    <text class="cls-3" transform="translate(78.69 20.93) scale(1.15 1)"><tspan x="0" y="0">SIGNAL</tspan></text>
+  </g>
+</svg>

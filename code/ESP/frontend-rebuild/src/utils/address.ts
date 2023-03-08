@@ -5,7 +5,7 @@ const arbitrumTestnet = require('../configs/arbitrumTestnet/config.json');
 const mainnet = require('../configs/mainnet/config.json');
 const xdai = require('../configs/xdai/config.json');
 const goerli = require('../configs/goerli/config.json');
-const localhost = require('../configs/localhost/config.json');
+// const localhost = require('../configs/localhost/config.json');
 
 const appConfig: AppConfig = {
   arbitrum,
@@ -13,7 +13,7 @@ const appConfig: AppConfig = {
   mainnet,
   xdai,
   goerli,
-  localhost,
+  /*localhost,*/
 };
 
 export function shortenAddress(address: string, digits = 4) {
