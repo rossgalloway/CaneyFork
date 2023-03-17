@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Box, Container } from 'components/primitives/Layout';
 import { Heading } from 'components/primitives/Typography';
-import { ReactComponent as DxSignal } from '../../assets/images/dxsignal.svg';
+import { ReactComponent as DxSignal } from '../../assets/images/dxdao-signalling.svg';
 
 export const HeaderWrapper = styled.nav`
   padding: 0.75rem 0;
@@ -28,7 +28,7 @@ export const HeaderContainer = styled(Container)`
 
 export const MenuItems = styled(Box)`
   display: flex;
-  align-items: center;
+  align-items: left;
   justify-content: space-between;
   margin-left: auto;
 `;
@@ -38,6 +38,6 @@ export const ClickableHeading = styled(Heading)`
 `;
 
 export const TextLogo = styled(DxSignal)`
-  width: 150%;
+  width: 100%;
   max-height: 50px;
 `;

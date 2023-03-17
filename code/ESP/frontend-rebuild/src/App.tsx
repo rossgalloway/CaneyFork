@@ -8,7 +8,7 @@ import GlobalStyle from './theme/GlobalTheme';
 
 // import { GuildsContextProvider, TransactionsProvider } from 'contexts/Guilds';
 
-// import { LandingPage } from 'Modules/Guilds/pages/LandingPage';
+import LandingPage from './pages/LandingPage';
 import NotFound from './pages/NotFound';
 import { Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
@@ -29,8 +29,8 @@ const App = () => {
           <Container>
             <OnlineStatus>
               <Routes>
-                {/* <Route path="/:chainName" element={<LandingPage />} />
-                <Route path="/:chainName/:guildId" element={<GuildsPage />} /> */}
+                <Route path="/:chainName" element={<LandingPage />}  />
+                {/*<Route path="/:chainName/:guildId" element={<GuildsPage />} /> */}
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </OnlineStatus>

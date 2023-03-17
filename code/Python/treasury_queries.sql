@@ -3,7 +3,7 @@
  {
  query 
  dxdcirculatingSupplySnapshots(
-     block: { number: 16693284 }
+     block: { number: 16841114 }
       orderBy: id
       orderDirection: desc
       first: 1
@@ -13,7 +13,7 @@
         circulatingSupply
         }
         treasuryBalancesSnapshots(
-            block: { number: 16693284 }
+            block: { number: 16841114 }
             orderBy: blockNumber
             orderDirection: desc
             first: 1
