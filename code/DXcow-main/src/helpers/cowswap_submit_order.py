@@ -5,7 +5,7 @@ from brownie import Wei
 
 def cowswap_submit_order(sell_token, buy_token, amount, network, avatar, cow_api):
     """function to submit a new order to the CowSwap API"""
-    
+
     # get the fee + the buy amount after fee
     fee_and_quote = cow_api + "quote/"
 
@@ -29,7 +29,7 @@ def cowswap_submit_order(sell_token, buy_token, amount, network, avatar, cow_api
     r_quote = requests.post(fee_and_quote, json=get_params, timeout=10)
     assert r_quote.ok and r_quote.status_code == 200
 
-    # create a new order_payload from the "quote" section of the response 
+    # create a new order_payload from the "quote" section of the response
     order_payload = r_quote.json()["quote"]
     print(f"\nquote response: {order_payload}")
 
@@ -40,7 +40,7 @@ def cowswap_submit_order(sell_token, buy_token, amount, network, avatar, cow_api
     # Add 4% slippage - for time delay
     order_payload["buyAmount"] = str(
         int(Wei(order_payload["buyAmount"]) * 0.96))
-    
+
     # Set Signing Scheme
     order_payload["signingScheme"] = "presign"
 

@@ -3,7 +3,7 @@ import json
 import dotenv
 import requests
 from web3 import Web3, Account
-from helpers.constants import AVATAR, DXD, COW_API, GOV_MODULES, TOKENS, COW_RELAYER 
+from helpers.constants import AVATAR, DXD, COW_API, GOV_MODULES, TOKENS, COW_RELAYER
 from helpers.cowswap_submit_order import cowswap_submit_order
 from helpers.calls import token_approve, cowswap_signature
 from helpers.submit_proposal import submit_proposal
@@ -52,7 +52,7 @@ if __name__ == "__main__":
 
     # Create new proposal object 
     NewProposal = {}
-    print(f"\nCreating new BuyBack Proposal")
+    print("\nCreating new BuyBack Proposal")
 
     # Get user input for network
     network = input("\n>>>Choose Network (MAINNET/GNOSIS): ")
@@ -110,7 +110,6 @@ if __name__ == "__main__":
     # add decimals to sell amount
     sell_amount_full_decimals = int(sell_amount) * int(10**int(sell_decimals))
     print(f"Amount to sell: {sell_amount} {sell_token_name.upper()} ({sell_amount_full_decimals})")
-    exit()
 
     # create the Cowswap Order
     order_uid = cowswap_submit_order(
@@ -121,7 +120,7 @@ if __name__ == "__main__":
     if submit == "y":
         # Connect to RPC based off network
         w3 = Web3(Web3.HTTPProvider(os.getenv(f"{network}_RPC")))
-        erc20_abi = json.load(open(f"abis/{sell_token_address.lower()}.json"))
+        erc20_abi = json.load(open(f"abis/{sell_token_name.lower()}.json"))
         sell_token_contract = w3.eth.contract(
             address=Web3.toChecksumAddress(sell_token_address), abi=erc20_abi)
         # Load cowswap ABI and create contract
@@ -130,16 +129,22 @@ if __name__ == "__main__":
             address=COW_RELAYER[network], abi=cow_relayer_abi
         )
         # get the data from the previously submitted order
-        order_details = requests.get(COW_API[network] + "/orders/" + order_uid)
+        order_details = requests.get(COW_API[network] + "/orders/" + order_uid, timeout=10)
         cow_sell_amount = int(order_details.json()["sellAmount"]) + int(
             order_details.json()["feeAmount"]
         )
-        cow_sell_amount_readable = int(cow_sell_amount / 10**sell_decimals)  
+        cow_sell_amount_readable = int(cow_sell_amount / 10**sell_decimals) 
         # Load private key from env
         proposer_pk = os.environ["PRIVATE_KEY"]
+        assert proposer_pk is not None, "You must set PRIVATE_KEY environment variable"
+        assert proposer_pk.startswith("0x"), "Private key must start with 0x hex prefix"
         # Setup web3 account from private key
-        proposer = Account.from_key(proposer_pk)
-        approval = token_approve(cow_sell_amount)
-        signature = cowswap_signature(order_uid)
+        proposer = Account.from_key(proposer_pk) # pylint: disable=E1120:no-value-for-parameter
+        NewProposal["PROPOSER"] = proposer
+        approval = token_approve(sell_token_contract, cow_sell_amount)
+        NewProposal["APPROVAL"] = approval
+        signature = cowswap_signature(cow_relayer, order_uid)
+        NewProposal["SIGNATURE"] = signature
         cid = pin_text(order_uid, cow_sell_amount_readable, sell_token_address)
+        NewProposal["CID"] = cid
         submit_proposal(network, gov_module, proposer, approval, signature, cid)
