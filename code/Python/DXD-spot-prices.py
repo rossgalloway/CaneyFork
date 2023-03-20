@@ -4,12 +4,13 @@ import csv
 from pycoingecko import CoinGeckoAPI
 cg = CoinGeckoAPI()
 
+# set your start and end dates here
 start_date = datetime(2022, 6, 1)  # start date of time period
 end_date = datetime(2023, 2, 23)  # end date of time period
-# end_date = datetime(2022, 7, 1)  # end date of time period
 dates = []
 
 def getDates():
+    '''function to find all mondays between start_date and end_date'''
     current_date = start_date
     while current_date <= end_date:
         if current_date.weekday() == 0:  # check if current date is a Monday (0 represents Monday)
@@ -21,8 +22,6 @@ def getDates():
 # customDate1 = '01-01-2023'
 # # Push custom dates into dates array
 # dates.append(queryDate1)
-
-
 
 def getBenchmarkPrices():
     '''Funtion to get price for DXD on start_date in USD and ETH'''
@@ -44,7 +43,7 @@ def getBenchmarkPrices():
 # I want to output a file in the following format: PriceData = { date1 { UsdPrice, EthPrice, BenchmarkPrice }, date2 { UsdPrice, EthPrice, BenchmarkPrice }...}
 
 def getPrices(dxdBenchmarkUSD, dxdBenchmarkETH):
-    PriceData = {}
+    '''function to get prices and compare them to a benchmark'''
     priceDataCsv = []
     for specificDate in dates:
         print(f'getting price for {specificDate}...')
