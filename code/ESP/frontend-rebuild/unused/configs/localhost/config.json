@@ -1,8 +1,0 @@
-{
-  "contracts": {
-    "utils": {
-      "guildRegistry": "0xc2dd7F6caA0f23F7e30F3cae1206da253373A923"
-    },
-    "votingMachines": {}
-  }
-}
