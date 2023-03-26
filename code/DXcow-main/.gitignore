@@ -1,2 +1,7 @@
 .env
 scratch.py
+/order-examples
+brownie-config.yaml
+src/scratch
+src/scripts
+src/helpers/__pycache__

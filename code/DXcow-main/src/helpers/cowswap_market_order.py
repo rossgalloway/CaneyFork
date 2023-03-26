@@ -2,9 +2,15 @@ from time import time
 import requests
 from brownie import Wei
 
-
-def cowswap_submit_order(sell_token, buy_token, amount, network, avatar, cow_api):
+def cowswap_market_order(proposal_data):
     """function to submit a new order to the CowSwap API"""
+
+    sell_token = proposal_data['SELL TOKEN ADDRESS']
+    buy_token = proposal_data['BUY TOKEN ADDRESS']
+    amount = proposal_data['ORDER SELL AMOUNT']
+    network = proposal_data['NETWORK']
+    avatar = proposal_data['AVATAR']
+    cow_api = proposal_data['COW API']
 
     # get the fee + the buy amount after fee
     fee_and_quote = cow_api + "quote/"
@@ -15,15 +21,16 @@ def cowswap_submit_order(sell_token, buy_token, amount, network, avatar, cow_api
         "buyToken": buy_token,
         "receiver": avatar,
         "appData": "0x0000000000000000000000000000000000000000000000000000000000000000",
-        "partiallyFillable": False,
+        "partiallyFillable": False, # pylint: disable=E0602:undefined-variable 
         "from": avatar,
         "priceQuality": "optimal",
         "signingScheme": "presign",
-        "onchainOrder": False,
+        "onchainOrder": False,  # pylint: disable=E0602:undefined-variable 
         "kind": "sell",
         "sellAmountBeforeFee": amount,
     }
 
+    # TODO this gets the current market price. We need the 70% of NAV price.
     # send the get_params object to cowSwap quote endpoint
     print(f"\nGetting quote from CowSwap on {network}...")
     r_quote = requests.post(fee_and_quote, json=get_params, timeout=10)
@@ -37,6 +44,7 @@ def cowswap_submit_order(sell_token, buy_token, amount, network, avatar, cow_api
     deadline = int(time()) + 60 * 60 * 24 * 40  # 40 days
     order_payload["validTo"] = deadline
 
+    # TODO remove when 70% of NAV price is added.
     # Add 4% slippage - for time delay
     order_payload["buyAmount"] = str(
         int(Wei(order_payload["buyAmount"]) * 0.96))
@@ -49,9 +57,9 @@ def cowswap_submit_order(sell_token, buy_token, amount, network, avatar, cow_api
 
     # Set "From" to DXdao Avatar
     order_payload["from"] = avatar
-    # unsure what the point of the following line is. Doesn't seem to actually do anything
-    # if network == "GNOSIS":
-    #      order_payload["feeAmount"] = str(int(Wei(order_payload["feeAmount"])))
+    # assure fee amount is a string
+    if network == "GNOSIS":
+         order_payload["feeAmount"] = str(int(Wei(order_payload["feeAmount"])))
 
     # Submit order to the Cowswap "orders" endpoint
     orders_url = cow_api + "orders"
